@@ -81,7 +81,6 @@ jobs:
     needs: trivy
     permissions:
       contents: read # Required to checkout and read repo files
-      security-events: write # Required to upload SARIF files to Security tab
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -89,6 +88,6 @@ jobs:
           fetch-depth: 0
 
       - name: Run TruffleHog secret scanner
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@v3.88.0
         with:
           extra_args: --results=verified,unknown
