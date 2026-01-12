@@ -78,6 +78,7 @@ jobs:
   trufflehog:
     name: TruffleHog Secret Scan
     runs-on: ubuntu-latest
+    needs : trivy
     permissions:
       contents: read # Required to checkout and read repo files
       security-events: write # Required to upload SARIF files to Security tab
